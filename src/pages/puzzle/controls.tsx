@@ -16,7 +16,7 @@ export default function Controls({
   const handleExit = async () => {
     // Kirim POST request untuk increment play count
     try {
-      await fetch('/api/games/sliding-puzzle/play-count', {
+      await fetch('/api/games/puzzle/play-count', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -26,6 +26,8 @@ export default function Controls({
       console.error('Failed to update play count:', error);
     }
     
+      window.location.href = '/'; // ✅ Redirect ke home
+
     // Panggil callback exit
     onExit();
   };
